@@ -27,4 +27,4 @@ jobs:
 
 
       - name: Run build
-        run: docker buildx -t $DOCKER_TAG --platform $ARCH --push .
+        run: docker buildx build -t $DOCKER_TAG --platform $ARCH --push .
