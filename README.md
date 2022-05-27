@@ -1,4 +1,4 @@
-# PROGRAMOWANIE FULL-STACK W CHMURACH OBLICZENIOWYCH - Laboratorium 1
+# Programowanie full-stack w chmurach obliczeniowych - Laboratorium 1
 
 Autor: Wiktor Flis <wiktor.flis@pollub.edu.pl>
 
