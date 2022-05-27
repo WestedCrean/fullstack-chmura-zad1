@@ -1,5 +1,8 @@
 name: Multiplatform build
 on: [push]
+env:
+  ARCH: linux/amd64,linux/arm64/v8,linux/arm/v7    
+  DOCKER_TAG: catherinium/node-minimal-lab
 jobs:
   buildx:
     runs-on: ubuntu-latest
@@ -7,6 +10,10 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v2
+
+      - name: Docker login
+        run: echo $DOCKERHUB_API_KEY | docker login -u $DOCKERHUB_USER --password-stdin
+
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -17,3 +24,7 @@ jobs:
       -
         name: Available platforms
         run: echo ${{ steps.buildx.outputs.platforms }}
+
+
+      - name: Run build
+        run: docker buildx -t $DOCKER_TAG --platform $ARCH --push .
