@@ -41,7 +41,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           file: .dockerdev/Dockerfile.prod
           push: false # This would be set to true in a real world deployment scenario.
-          tags: $DOCKER_TAG
-          platforms: $ARCH
+          tags: ${{DOCKER_TAG}}
+          platforms: ${{ARCH}}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
