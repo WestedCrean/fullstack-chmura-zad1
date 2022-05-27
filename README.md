@@ -48,5 +48,12 @@ W serwisie dockerhub zamieściłem również wersje obrazów na architektury lin
 Link do dockerhub: https://hub.docker.com/r/catherinium/node-minimal-lab/tags
 
 
+## Github Actions
 
+Projekt ma skonfigurowane Github Actions. Pipeline buduje wszystkie architektury jak wyżej oraz publikuje na dockerhub. 
+
+Wykorzystywany jest przy tym cache, dzięki czemu z 1.5 min budowa obrazu jest skracana do 45 sekund:
+
+![Docker cache time](./cache1.png)
+![Docker cache log](./cache2.png)
 
