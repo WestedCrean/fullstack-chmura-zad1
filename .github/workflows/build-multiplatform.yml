@@ -1,7 +1,5 @@
 name: Multiplatform build
 on: [push]
-env:
-  DOCKER_TAG: catherinium/node-minimal-lab
 jobs:
   buildx:
     runs-on: ubuntu-latest
@@ -40,7 +38,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           file: .dockerdev/Dockerfile.prod
           push: false # This would be set to true in a real world deployment scenario.
-          tags: $DOCKER_TAG
+          tags: catherinium/node-minimal-lab
           platforms: linux/amd64,linux/arm64/v8,linux/arm/v7
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
