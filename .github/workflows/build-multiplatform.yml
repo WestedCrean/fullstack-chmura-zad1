@@ -36,8 +36,8 @@ jobs:
         with:
           context: .
           builder: ${{ steps.buildx.outputs.name }}
-          file: .dockerdev/Dockerfile.prod
-          push: false # This would be set to true in a real world deployment scenario.
+          file: Dockerfile
+          push: true # This would be set to true in a real world deployment scenario.
           tags: catherinium/node-minimal-lab
           platforms: linux/amd64,linux/arm64/v8,linux/arm/v7
           cache-from: type=local,src=/tmp/.buildx-cache
